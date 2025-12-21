@@ -27,7 +27,7 @@ export const tools: Tool[] = [
     title: "Payment Notice Generator (JCT)",
     summary: "Draft a Payment Notice with structured valuation lines and timings.",
     category: "Notices",
-    status: "coming-soon",
+    status: "live",
   },
   {
     id: "jct-tool-002",
@@ -35,7 +35,7 @@ export const tools: Tool[] = [
     title: "Pay Less Notice Generator (JCT)",
     summary: "Generate a compliant Pay Less Notice draft with key fields and dates.",
     category: "Notices",
-    status: "coming-soon",
+    status: "live",
   },
   {
     id: "jct-tool-003",
