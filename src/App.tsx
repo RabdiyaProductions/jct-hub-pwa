@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import ComingSoon from "./pages/ComingSoon";
+import { MAINTENANCE_MODE } from "./config";
 
-function App() {
-  const [count, setCount] = useState(0)
+/**
+ * Maintenance mode:
+ * - EVERYTHING routes to ComingSoon
+ * - This prevents partial/unfinished tools from being accessed publicly
+ */
+export default function App() {
+  if (MAINTENANCE_MODE) {
+    return (
+      <Routes>
+        <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="*" element={<Navigate to="/coming-soon" replace />} />
+      </Routes>
+    );
+  }
 
+  /**
+   * When MAINTENANCE_MODE is false:
+   * Put your real app routes here (Dashboard, Tools, etc.)
+   * For now, we still show ComingSoon as a safe default until your mega-suite is ready.
+   */
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<ComingSoon />} />
+      <Route path="/coming-soon" element={<ComingSoon />} />
+      <Route path="*" element={<Navigate to="/coming-soon" replace />} />
+    </Routes>
+  );
 }
-
-export default App

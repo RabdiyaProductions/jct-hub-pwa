@@ -8,10 +8,13 @@ export default function Home() {
         All JCT tools in one installable app. Start with a tool, buy if needed, and get output fast.
       </p>
 
-      <div style={{ display: "flex", gap: 12, marginTop: 16, flexWrap: "wrap" }}>
-        <Link to="/tools">Browse Tools</Link>
-        <a href="/chatbot">Open ChatBot</a>
-      </div>
+<div style={{ display: "flex", gap: 12, marginTop: 16, flexWrap: "wrap" }}>
+  <Link to="/tools">Browse Tools</Link>
+  <Link to="/chatbot">Open ChatBot</Link>
+  <Link to="/suites/jct-core-risk">JCT Core Risk Suite</Link>
+  <Link to="/suites/jct-commercial-payment">JCT Commercial Payment Suite</Link>
+  <Link to="/suites/jct-programme-completion">JCT Programme Completion Suite</Link>
+</div>
 
       <div style={{ marginTop: 18, padding: 16, border: "1px solid #ddd", borderRadius: 12 }}>
         <strong>Today’s goal:</strong> Activate the JCT landing page links and start turning “Coming Soon” into “Live”.

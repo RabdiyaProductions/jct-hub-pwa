@@ -1,15 +1,15 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { tools } from "../data/tools";
+import { tools, type Tool } from "../data/tools";
 
 export default function Tools() {
   const [q, setQ] = useState("");
   const [category, setCategory] = useState<string>("All");
 
-  const categories = useMemo(() => {
-    const set = new Set(tools.map((t) => t.category));
-    return ["All", ...Array.from(set)];
-  }, []);
+  const categories = useMemo((): string[] => {
+  const set = new Set(tools.map((t: Tool) => t.category));
+  return ["All", ...Array.from(set)];
+}, []);
 
   const filtered = useMemo(() => {
     const s = q.trim().toLowerCase();
@@ -62,6 +62,7 @@ export default function Tools() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: 8, minWidth: 160 }}>
                 <Link to={`/tools/${t.slug}`}>Open</Link>
+                <Link to="/chatbot">Open ChatBot</Link>
 
                 {t.stripeUrl ? (
                   <a href={t.stripeUrl} target="_blank" rel="noreferrer">
